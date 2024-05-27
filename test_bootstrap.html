@@ -4,12 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>bootstrap v5</title>
-    <link href="bootstrap.min.css" rel="stylesheet" />
+    <link href="bootstrap.css" rel="stylesheet" />
+    <style>
+      .table-bordered-overwrite > :not(caption) > * {
+        border-width: var(--bs-border-width) 0;
+      }
+      .table-bordered-overwrite > :not(caption) > * > * {
+        border-width: 0 var(--bs-border-width);
+      }
+
+      .table-striped-overwrite > tbody > tr:nth-of-type(odd) > * {
+        --bs-table-color-type: var(--bs-table-striped-color);
+        --bs-table-bg-type: var(--bs-table-striped-bg);
+      }
+
+      .form-check-input:focus {
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+      }
+    </style>
   </head>
   <body>
     <div class="table-responsive">
       <table
-        class="table table-bordered table-striped with-check"
+        class="table table-bordered-overwrite table-striped-overwrite with-check"
         style="word-break: break-all; word-wrap: break-all"
       >
         <thead>
@@ -59,7 +78,8 @@
           </tr>
           <tr>
             <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
+            <td>Larry the Bird</td>
+            <td>@twitter</td>
             <td>@twitter</td>
           </tr>
         </tbody>
